@@ -2,16 +2,13 @@ var express = require('express');
 var router = express.Router();
 var Controller = require('./../controller');
 
-router.get('/', function(req, res) {
-  Controller.retrieve(req, res);
-});
+router.get('/', Controller.retrieve);
+router.get('/:id', Controller.get);
 
-router.get('/:id', function(req, res) {
-  Controller.get(req, res);
-});
+router.post('/', Controller.create);
 
-router.post('/', function(req, res) {
-  Controller.retrieve(req, res);
-});
+router.put('/:id', Controller.update);
+
+router.delete('/:id', Controller.delete);
 
 module.exports = router;
